@@ -3,9 +3,9 @@
 
 * #### Dependencies
     1. create conda env
-        '''base
+        ```base
             $ conda create -n envname python=3.9
-        '''
+        ```
     3. Install the dependencies needed to run the app:
         ```bash
             $ pip install -r requirements.txt
