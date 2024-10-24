@@ -18,7 +18,7 @@
 * #### Make a new app
     ```
     bash
-    python manage.py startapp appName
+    $ python manage.py startapp appName
     ```
 * #### Run It
     Fire up the server using this one simple command:
@@ -28,4 +28,9 @@
     You can now access the file api service on your browser by using
     ```
         http://localhost:8000/
+    ```
+* #### Test the post function
+    Assume that you already runserver in the local machine
+    ```bash
+    $ python test_post.py
     ```
