@@ -15,7 +15,11 @@
             $ python manage.py makemigrations
             $ python manage.py migrate
         ```
-
+* #### Make a new app
+    ```
+    bash
+    python manage.py startapp appName
+    ```
 * #### Run It
     Fire up the server using this one simple command:
     ```bash
