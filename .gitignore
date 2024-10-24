@@ -1,2 +1,6 @@
 # ignore all .pyc files
 *.pyc
+*.pth
+*.pkl
+*Stock.csv
+file_path.json
