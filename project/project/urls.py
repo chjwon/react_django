@@ -19,9 +19,11 @@ from django.urls import path, include
 # from django.conf.urls import re_path
 from app.views import ReactView
 from predictions.views import PredictView
-
+from prediction_csv.views import PredictStockView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',ReactView.as_view(),name="test"),
     path('prediction/', PredictView.as_view(), name="prediction"),
+    path('predict_timeseries/', PredictStockView.as_view(), name='predict_timeseries'),
+
 ]
