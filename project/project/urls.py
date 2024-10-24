@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 # from django.conf.urls import re_path
-from app.views import *
+from app.views import ReactView
+from predictions.views import PredictView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',ReactView.as_view(),name="test")
+    path('',ReactView.as_view(),name="test"),
+    path('prediction/', PredictView.as_view(), name="prediction"),
 ]
