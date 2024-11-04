@@ -4,7 +4,7 @@ This API provides an interface to interact with OpenAI's GPT models, enabling us
 
 ## Endpoint
 
-- **URL:** `/api/gpt-response/`
+- **URL:** `/api/gpt/`
 - **Methods:**
   - `GET`: Returns a message indicating that the `POST` method should be used.
   - `POST`: Accepts a text input and returns a generated response from the GPT model.
