@@ -20,10 +20,12 @@ from django.urls import path, include
 from app.views import ReactView
 from predictions.views import PredictView
 from prediction_csv.views import PredictStockView
+from gpt.views import gptResponse
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',ReactView.as_view(),name="test"),
     path('prediction/', PredictView.as_view(), name="prediction"),
     path('predict_timeseries/', PredictStockView.as_view(), name='predict_timeseries'),
+    path('gpt/',gptResponse.as_view(), name='gpt_response'),
 
 ]

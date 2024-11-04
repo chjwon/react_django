@@ -4,3 +4,5 @@
 *.pkl
 *Stock.csv
 file_path.json
+*api_key.txt
+working/
