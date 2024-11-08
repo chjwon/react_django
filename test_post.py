@@ -1,7 +1,6 @@
 import requests
 
 def test_prediction():
-    # Test the /prediction/ endpoint with an image file
     url = 'http://localhost:8000/prediction/'
     file_path = './images.jpg'
 
@@ -9,12 +8,14 @@ def test_prediction():
         with open(file_path, 'rb') as f:
             files = {'file': f}
             response = requests.post(url, files=files)
-            if response.status_code == 200:
-                print("Prediction Response:", response.json())
-            else:
-                print(f"Prediction failed with status code {response.status_code}: {response.text}")
+            assert response.status_code == 200, f"Prediction failed with status code {response.status_code}: {response.text}"
+            response_data = response.json()
+            assert "prediction" in response_data, "Key 'prediction' not found in the response"
+            print("Prediction test passed:", response_data)
     except FileNotFoundError:
         print(f"File {file_path} not found.")
+    except AssertionError as e:
+        print(f"Assertion error in prediction test: {e}")
     except Exception as e:
         print(f"An error occurred during the prediction test: {e}")
 
@@ -27,10 +28,12 @@ def test_prediction_csv():
 
     try:
         response = requests.post(url, json=data)
-        if response.status_code == 200:
-            print("Prediction CSV Response:", response.json())
-        else:
-            print(f"Prediction CSV failed with status code {response.status_code}: {response.text}")
+        assert response.status_code == 200, f"Prediction CSV failed with status code {response.status_code}: {response.text}"
+        response_data = response.json()
+        assert "prediction" in response_data, "Key 'prediction' not found in the response"
+        print("Prediction CSV test passed:", response_data)
+    except AssertionError as e:
+        print(f"Assertion error in prediction CSV test: {e}")
     except Exception as e:
         print(f"An error occurred during the prediction_csv test: {e}")
 
@@ -43,10 +46,12 @@ def test_gpt_response():
 
     try:
         response = requests.post(url, json=data)
-        if response.status_code == 200:
-            print("GPT Response:", response.json())
-        else:
-            print(f"GPT response failed with status code {response.status_code}: {response.text}")
+        assert response.status_code == 200, f"GPT response failed with status code {response.status_code}: {response.text}"
+        response_data = response.json()
+        assert "response" in response_data, "Key 'response' not found in the response"
+        print("GPT response test passed:", response_data)
+    except AssertionError as e:
+        print(f"Assertion error in GPT response test: {e}")
     except Exception as e:
         print(f"An error occurred during the GPT response test: {e}")
 
